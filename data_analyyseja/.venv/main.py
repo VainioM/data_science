@@ -4,6 +4,7 @@ from pathlib import Path
 import numpy as np
 import seaborn as sns
 from matplotlib import pyplot as plt
+from matplotlib.pyplot import scatter
 
 print("Data-analyysejä Pythonilla")
 #§§
@@ -36,7 +37,16 @@ def count_plot(x, hue, data):
     plt.show()
 
 #lähetetään funktiolle arvot 'survived' ja 'sex'
-count_plot('Survived', 'Sex', titanic_df)
+#count_plot('Survived', 'Sex', titanic_df)
 
-count_plot('Survived', 'Pclass', titanic_df)
+#count_plot('Survived', 'Pclass', titanic_df)
 
+#funktio, joka luo pistekaavion annettujen x- ja y-parametrien mukaan
+def scatter_plot (x, y, data):
+    plt.scatter(x=x, y=y, data=data)
+    plt.xlabel('Age of passenger')
+    plt.ylabel('Fare paid for ticket')
+    plt.show()
+
+#lähetetään funktiolle arvot x='age' ja y='fare'
+scatter_plot('Age', 'Fare', titanic_df)
